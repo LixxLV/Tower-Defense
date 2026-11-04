@@ -1,0 +1,67 @@
+body {
+  background: #07080d;
+  margin: 0;
+  padding-bottom: 24px;
+}
+
+/* Glowing title above the game.
+   Change --glow to recolor it, e.g. #ff2d55 for red or #8fd3ff for ghost blue. */
+.game-title {
+  --glow: 255, 170, 40;
+  margin: 0;
+  padding: 24px 12px 18px;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+  font-size: clamp(1.6rem, 5.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffd98a;
+  text-shadow:
+    0 0 8px rgba(var(--glow), 0.9),
+    0 0 22px rgba(var(--glow), 0.65),
+    0 0 46px rgba(var(--glow), 0.45);
+  animation: title-glow 3.2s ease-in-out infinite;
+}
+
+@keyframes title-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 8px rgba(var(--glow), 0.9),
+      0 0 22px rgba(var(--glow), 0.65),
+      0 0 46px rgba(var(--glow), 0.45);
+  }
+  50% {
+    text-shadow:
+      0 0 5px rgba(var(--glow), 0.7),
+      0 0 14px rgba(var(--glow), 0.45),
+      0 0 30px rgba(var(--glow), 0.3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-title { animation: none; }
+}
+
+.hint {
+  max-width: 900px;
+  margin: 14px auto 0;
+  padding: 0 12px;
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 0.85rem;
+  color: #8a8fa8;
+}
+
+#myCanvas {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 0 2px rgba(255, 170, 40, 0.35), 0 8px 30px rgba(0, 0, 0, 0.6);
+  touch-action: manipulation;
+  user-select: none;
+}
